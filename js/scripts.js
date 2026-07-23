@@ -97,4 +97,33 @@
         });
     });
 
+    // Project carousel arrow navigation
+    $('.carousel').each(function() {
+        var $track = $(this).find('.carousel-track');
+        var $prev = $(this).find('.carousel-arrow-prev');
+        var $next = $(this).find('.carousel-arrow-next');
+
+        function cardStep() {
+            return $track.find('.project-card').first().outerWidth(true);
+        }
+
+        function updateArrows() {
+            var scrollLeft = $track.scrollLeft();
+            var maxScroll = $track[0].scrollWidth - $track[0].clientWidth;
+            $prev.prop('disabled', scrollLeft <= 0);
+            $next.prop('disabled', scrollLeft >= maxScroll - 1);
+        }
+
+        $prev.click(function() {
+            $track.animate({ scrollLeft: $track.scrollLeft() - cardStep() }, 300, updateArrows);
+        });
+
+        $next.click(function() {
+            $track.animate({ scrollLeft: $track.scrollLeft() + cardStep() }, 300, updateArrows);
+        });
+
+        $track.on('scroll', updateArrows);
+        updateArrows();
+    });
+
 })(jQuery);
