@@ -15,6 +15,9 @@
     // Remove no-js class
     $('html').removeClass('no-js');
 
+    // Keep footer copyright year current
+    $('#copyright-year').text(new Date().getFullYear());
+
     // Animate to section when nav is clicked
     $('header a').click(function(e) {
 

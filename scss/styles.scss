@@ -655,7 +655,8 @@ footer {
 }
 
 .project {
-    position: relative;
+    display: flex;
+    align-items: stretch;
     max-width: 900px;
     margin: 0 auto 30px auto;
     overflow: hidden;
@@ -664,15 +665,23 @@ footer {
 }
 
 .project-image {
-    float: left;
+    flex: 0 0 300px;
+    max-width: 300px;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .project-info {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-left: 300px;
-    padding: 15px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
 
     h3 {
         font-size: 1.5em;
@@ -690,11 +699,37 @@ footer {
 
 .no-image {
     .project-info {
-        position: relative;
-        margin: 0;
         padding: 30px 15px;
-        transform: none;
     }
+}
+
+.projects-subheading {
+    color: $heading;
+    font-weight: 300;
+    font-size: 1.3em;
+    margin: 40px 0 20px 0;
+    padding-top: 30px;
+    border-top: 1px solid $border;
+    text-align: center;
+}
+
+.project-info a {
+    color: $heading;
+    text-decoration: none;
+
+    &:hover {
+        color: $base-color;
+    }
+}
+
+.project-lang {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 3px 10px;
+    font-size: 0.75em;
+    color: $heading;
+    background: darken($background-alt, 5%);
+    border-radius: 3px;
 }
 
 #more-projects {
@@ -732,6 +767,23 @@ footer {
         list-style: none;
         cursor: default;
         font-size: 1.2em;
+    }
+}
+
+.skills-category {
+    margin-bottom: 30px;
+
+    h4 {
+        color: $text;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.9em;
+        margin: 0 0 5px 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -976,11 +1028,7 @@ footer {
     }
 
     .project-info {
-        position: relative;
-        margin: 0;
         padding: 30px 15px;
-        top: auto;
-        transform: none;
     }
 
     footer {
