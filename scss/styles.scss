@@ -481,7 +481,7 @@ footer {
     border-bottom: 1px solid $border;
 
     h2 {
-         color: #fff;;
+        color: $heading;
     }
 }
 
@@ -637,9 +637,19 @@ footer {
     }
 }
 
+#certifications {
+    padding: 50px 15px;
+    border-bottom: 1px solid $border;
+    text-align: center;
+
+    h2 {
+        color: $heading;
+    }
+}
+
 .cert-zigzag {
     position: relative;
-    max-width: 820px;
+    max-width: 900px;
     margin: 40px auto 0 auto;
 
     &:before {
@@ -685,7 +695,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 15px;
-    width: 48%;
+    width: 54%;
     position: relative;
     z-index: 1;
 }
